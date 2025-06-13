@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AhorroApp</string>
+
+    <string-array name="tipos_movimiento">
+        <item>Ingreso</item>
+        <item>Gasto</item>
+    </string-array>
+    <string-array name="tipo_movimiento_array">
+        <item>Ingreso</item>
+        <item>Gasto</item>
+    </string-array>
+
+</resources>
