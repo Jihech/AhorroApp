@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 
-
+//Prueba de commit desde GitHub Desktop
 @Entity
 @Table(name = "deudas")
 public class Deuda {

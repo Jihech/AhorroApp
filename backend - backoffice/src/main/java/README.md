@@ -1,75 +1,76 @@
 # 💰 AhorroApp
 
-**AhorroApp** es una aplicación móvil desarrollada en Java (Android Studio) que permite a los usuarios llevar un control de sus ingresos y gastos. La aplicación se conecta con un backend desarrollado en **Spring Boot**, y la información se almacena en una base de datos **PostgreSQL** (pgAdmin)
-
----
-## 👥 Integrantes 
-- JIMMY HERENCIA CHAMBI
-- MICHEEL OLIVARES ROJAS
-- YEYMI PAREJA YUTO
+AhorroApp es una aplicación móvil y web desarrollada con el objetivo de ayudar a los usuarios a **gestionar sus finanzas personales**, registrar ingresos, gastos, deudas, metas de ahorro y recibir notificaciones importantes.
 
 ---
 
-## 📱 Características
+## 🚀 Tecnologías utilizadas
 
-- Registro y visualización de **movimientos** (ingresos y gastos)
-- Separación de interfaces para gestionar:
-  - Usuario
-  - Movimientos
-- Conexión con API REST.
-- Patrón **MVVM** para la arquitectura de la app
-- Interfaz sencilla y adaptable.
-
-**BASE_backend = "http://10.0.2.2:8081/api/"**
-
----
-
-## 🛠️ Tecnologías utilizadas
-
-### Backend
-- Java
-- Spring Boot
+### 🧠 Backend
+- Java 17
+- Spring Boot 
+- Spring Security
+- Spring Data JPA (Hibernate)
 - PostgreSQL (pgAdmin)
-- JPA / Hibernate
-- Maven
-- Postman (para pruebas)
+- Thymeleaf (para el backoffice web)
 
-### Frontend
+### Frontend Spring boot
+- JavaScript(Nativo)
+- HTML5
+- Thymeleaf
+- Css
+
+### 📱 Frontend Android
 - Java (Android Studio)
-- Retrofit2 (es una biblioteca cliente HTTP para Android y Java que simplifica la comunicación con APIs REST)
-- RecyclerView (componente más avanzado y flexible que ListView para mostrar listas o colecciones de datos)
-- ConstraintLayout (permite crear interfaces complejas con un rendimiento mejorado)
-- MVVM
-- Emulador: Pixel 5 - API 30
-
----
-- Estas tres herramientas son fundamentales en el desarrollo Android moderno para:
-
-- Consumir APIs (Retrofit)
-
-- Mostrar listas eficientes (RecyclerView)
-
-- Crear interfaces complejas (ConstraintLayout)
-
+- Retrofit2
+- Arquitectura MVVM (parcialmente implementada)
 
 ---
 
-## API REST
+## 📦 Estructura del Proyecto
 
-### Obtener movimientos (GET)
-**http://localhost:8081/api/movimientos/**
+### 📂 Entidades principales
 
-### Crear nuevo movimiento (POST)
-**http://localhost:8081/api/movimientos/**
+- `Usuario`: modelo base para login, registro y control de autenticación.
+- `Movimiento`: fusión de ingresos y gastos. Tiene tipo, monto, descripción y fecha.
+- `Categoria`: permite clasificar los movimientos por tipo.
+- `Deuda`: controla deudas pendientes, monto, fecha límite y estado de pago.
+- `MetaAhorro`: objetivos financieros con montos y fechas objetivo.
+- `Notificacion`: sistema interno para alertas sobre pagos o metas próximas.
+<!--
+- `UsuarioResponse`: clase auxiliar para respuestas, omitida en backend persistente.
+-->
 
-{
- - "tipo": "Ingreso",   <-- (Puede ser Gastos o Ingreso)
- - "monto": 250.00, 
- - "descripcion": "Venta de ropa",
- - "fecha": "2025-06-12"  
-}
+---
 
-### Eliminar movimiento (DELETE)
-**http://localhost:8081/api/movimientos/1**  <-- (El numero es depende de que id quieres eliminar)
+## 🔒 Seguridad
+
+- Se implementó **Spring Security** con autenticación basada en correo y clave.
+- Acceso restringido a rutas internas (`/dashboard`, etc.).
+- Las rutas móviles (`/api/**`) son públicas por ahora, ya que no se ha integrado sesión desde Android.
+
+---
+
+## 🌐 Funcionalidades actuales
+
+| Funcionalidad                      | Web           | Android       |
+|-----------------------------------|---------------|----------------|
+| Registro de usuarios              | ✅ (modal)     | ✅ (pantalla)   |
+| Login de usuarios                 | ✅ (modal)     | ✅ (con Retrofit) |
+| Registrar movimientos             | ✅             | ✅              |
+| Visualización de movimientos      | ✅             | ✅              |
+| Categorías de movimientos         | ⏳             | ⏳              |
+| Registro de deudas                | ⏳             | ⏳              |
+| Metas de ahorro                   | ⏳             | ⏳              |
+| Notificaciones (alertas)          | ⏳             | ⏳              |
+
+> ⏳ = pendiente de implementación
+
+---
+## Ruta Retrofit
+BASE_URL = "http://10.0.2.2:8081/api/"
+
+### Última actualización: 
+Agregadas entidades Deuda y MetaAhorro
 
 ---
