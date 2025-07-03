@@ -15,7 +15,6 @@ import com.sise.ahorroapp.adapter.MovimientoAdapter;
 import com.sise.ahorroapp.model.Movimiento;
 import com.sise.ahorroapp.network.MovimientoServicio;
 import com.sise.ahorroapp.network.RetrofitClient;
-import com.sise.ahorroapp.ui.RegistrarMovimientoActivity;
 
 import java.util.ArrayList;
 import java.util.List;

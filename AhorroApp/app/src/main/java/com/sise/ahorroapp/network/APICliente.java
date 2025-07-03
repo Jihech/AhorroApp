@@ -5,7 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APICliente {
 
-    private static final String BASE_URL = "http://10.0.2.2:8081/api/";
+    private static final String BASE_URL = "http://10.0.2.2:8081/api/usuarios/login";
+
     private static Retrofit retrofit = null;
 
     public static Retrofit getRetrofit() {
